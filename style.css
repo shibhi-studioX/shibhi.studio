@@ -8,16 +8,36 @@
 /* Body */
 body {
   height: 100vh;
-  background: radial-gradient(circle at top, #0f0f0f, #000000);
+  background:
+    radial-gradient(circle at top, #111111 0%, #000000 60%),
+    repeating-radial-gradient(circle at center,
+      rgba(255,255,255,0.015) 0px,
+      rgba(255,255,255,0.015) 1px,
+      transparent 2px,
+      transparent 6px
+    );
   color: #ffffff;
   font-family: 'Inter', sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+}
+
+/* Vinyl / grain overlay */
+.grain {
+  position: fixed;
+  inset: 0;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: 1;
 }
 
 /* Layout */
 .container {
+  position: relative;
+  z-index: 2;
   text-align: center;
   padding: 20px;
 }
@@ -34,11 +54,12 @@ body {
   opacity: 0.9;
 }
 
-/* Section */
+/* Sections */
 .section {
   margin-top: 35px;
 }
 
+/* Section title */
 .section-title {
   font-size: 1rem;
   font-weight: 300;
@@ -48,12 +69,35 @@ body {
   margin-bottom: 14px;
 }
 
-/* Experimental tagline */
+/* Tagline */
 .tagline {
   font-family: 'Playfair Display', serif;
   font-style: italic;
   font-size: 1.05rem;
-  font-weight: 400;
   line-height: 1.6;
   opacity: 0.85;
+}
+
+/* Categories */
+.categories ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 10px 24px;
+  margin-top: 30px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.categories li {
+  font-size: 0.9rem;
+  font-weight: 300;
+  letter-spacing: 0.6px;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.categories li:hover {
+  opacity: 1;
 }
