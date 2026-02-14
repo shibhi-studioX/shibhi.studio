@@ -1,58 +1,33 @@
 <!DOCTYPE html>
-
-<html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>shibhi.studio | Experimental</title>
-</style>
-
-
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shibhi.studio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Calligraffitti&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
-
-<body class="flex flex-col items-center justify-center p-6 md:p-12">
-
-<!-- HTML CONTENT SECTION -->
-<div class="bg-container"></div>
-<div class="bg-overlay"></div>
-
-<audio id="audioPlayer" loop>
-    <source src="music.mp3" type="audio/mpeg">
-</audio>
-
-<main class="w-full max-w-7xl flex flex-col md:flex-row items-center justify-between gap-12">
-    
-    <div class="text-left flex-1 space-y-10">
-        <header>
-            <h1 class="brand-heading text-6xl md:text-8xl font-bold text-white mb-2">
-                shibhi.studio
-            </h1>
-            <h2 class="tagline-main text-lg md:text-xl font-light">
-                Experimental.
-            </h2>
-            <p class="tagline-script italic">
-                "Not just for a television, Teleport to where it's written."
-            </p>
-        </header>
-
-        <nav>
-            <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4 text-xl md:text-2xl">
-                <li class="nav-item"><a href="#photography">Photography</a></li>
-                <li class="nav-item"><a href="#blender">Blender Animation</a></li>
-                <li class="nav-item"><a href="#projects">Projects</a></li>
-                <li class="nav-item"><a href="#corel">CorelDRAW Designs</a></li>
-                <li class="nav-item"><a href="#electronics">Electronics</a></li>
-                <li class="nav-item"><a href="#youtube">YouTube</a></li>
-                <li class="nav-item"><a href="#instagram">Instagram</a></li>
-                <li class="nav-item"><a href="#about">About Me</a></li>
+<body>
+    <div class="container">
+        <h1 class="main-heading">shibhi.studio</h1>
+        <h2 class="tagline">Experimental.</h2>
+        <p class="description">Not just for a television, Teleport to where it's written.</p>
+        <img src="vinyl.png" alt="Vinyl" class="vinyl" id="vinyl">
+        <button class="toggle-button" id="toggleButton">Play/Pause</button>
+        <nav class="navbar">
+            <ul>
+                <li>Photography</li>
+                <li>Blender Animation</li>
+                <li>Projects</li>
+                <li>CorelDRAW Designs</li>
+                <li>Electronics</li>
+                <li>YouTube</li>
+                <li>Instagram</li>
+                <li>About Me</li>
             </ul>
         </nav>
     </div>
-
-    <div class="flex-1 flex justify-center md:justify-end w-full">
-        <div class="vinyl-wrapper">
-            <div id="vinyl" class="vinyl-disc paused"></div>
-            <div id="toggleBtn" class="center-knob">
-                <div id="icon" class="play-icon"></div>
-            </div>
-        </div>
-    </div>
-</main>
+    <audio id="audio" src="your-audio-file.mp3"></audio>
+    <script src="script.js"></script>
 </body>
 </html>
