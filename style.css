@@ -1,119 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>shibhi.studio — Experimental</title>
-  <style>
-    /* RESET */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    /* BASE */
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: url('wallpaper.png') center/cover no-repeat;
-      color: #fff;
-      overflow-x: hidden;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      padding: 0 50px;
-      position: relative;
-    }
+/* Body */
+body {
+  height: 100vh;
+  background: radial-gradient(circle at top, #0f0f0f, #000000);
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    /* VINYL OVERLAY */
-    .vinyl {
-      position: absolute;
-      right: 50px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 300px;
-      height: 300px;
-      background: url('vinyl.png') center/contain no-repeat;
-      animation: spin 6s linear infinite;
-    }
+/* Layout */
+.container {
+  text-align: center;
+  padding: 20px;
+}
 
-    @keyframes spin {
-      from { transform: translateY(-50%) rotate(0deg); }
-      to { transform: translateY(-50%) rotate(360deg); }
-    }
+/* Brand */
+.brand {
+  font-size: 3.5rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
 
-    /* NAVIGATION */
-    nav {
-      display: flex;
-      flex-direction: column;
-      gap: 25px;
-    }
+.brand .dot {
+  font-weight: 300;
+  opacity: 0.9;
+}
 
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 18px;
-      transition: color 0.3s;
-    }
+/* Section */
+.section {
+  margin-top: 35px;
+}
 
-    nav a:hover {
-      color: #aaa;
-    }
+.section-title {
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: 0.75;
+  margin-bottom: 14px;
+}
 
-    /* HERO TEXT */
-    .hero {
-      max-width: 500px;
-    }
-
-    .hero h1 {
-      font-size: 64px;
-      margin-bottom: 10px;
-      letter-spacing: 2px;
-    }
-
-    .hero p {
-      font-size: 20px;
-      color: #ccc;
-    }
-
-    /* VINYL GRAIN EFFECT OVERLAY */
-    body::after {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      background: url('https://i.ibb.co/7WmJczt/vinyl-grain.png') repeat;
-      opacity: 0.05;
-      animation: grain 0.2s steps(2) infinite;
-    }
-
-    @keyframes grain {
-      0%, 100% { opacity: 0.05; }
-      50% { opacity: 0.1; }
-    }
-  </style>
-</head>
-<body>
-  <nav>
-    <a href="#projects">Projects</a>
-    <a href="#photography">Photography</a>
-    <a href="#tech">Computer & Tech</a>
-    <a href="#blender">Blender & Animations</a>
-    <a href="#electronics">Electronics</a>
-    <a href="#inventions">Inventions</a>
-    <a href="#about">About Lab</a>
-    <a href="#contact">Instagram · YouTube</a>
-  </nav>
-
-  <div class="hero">
-    <h1>shibhi.studio</h1>
-    <p>Experimental.</p>
-  </div>
-
-  <div class="vinyl"></div>
-</body>
-</html>
+/* Experimental tagline */
+.tagline {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  font-weight: 400;
+  line-height: 1.6;
+  opacity: 0.85;
+}
