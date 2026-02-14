@@ -4,11 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>shibhi.studio</title>
+    <meta name="description" content="shibhi.studio - Experimental creative portfolio" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <main class="site-shell">
-      <section class="hero">
+      <section class="hero" id="top">
         <div class="hero-copy">
           <h1>shibhi.studio</h1>
           <p class="tagline">Experimental.</p>
@@ -16,21 +17,32 @@
 
           <nav aria-label="Shibhi Studio categories">
             <ul class="categories">
-              <li><a href="#">Photography</a></li>
-              <li><a href="#">Blender Animation</a></li>
-              <li><a href="#">Projects</a></li>
-              <li><a href="#">CorelDRAW Designs</a></li>
-              <li><a href="#">Electronics</a></li>
-              <li><a href="#">YouTube</a></li>
-              <li><a href="#">Instagram</a></li>
-              <li><a href="#">About Me</a></li>
+              <li><a href="#photography">Photography</a></li>
+              <li><a href="#blender">Blender Animation</a></li>
+              <li><a href="#projects">Projects</a></li>
+              <li><a href="#coreldraw">CorelDRAW Designs</a></li>
+              <li><a href="#electronics">Electronics</a></li>
+              <li><a href="#youtube">YouTube</a></li>
+              <li><a href="#instagram">Instagram</a></li>
+              <li><a href="#about">About Me</a></li>
             </ul>
           </nav>
         </div>
 
         <div class="hero-art" aria-hidden="true">
-          <img class="vinyl" src="vinyl.png" alt="" />
+          <img class="vinyl" src="vinyl.png" alt="Spinning vinyl record" />
         </div>
+      </section>
+
+      <section class="cards" aria-label="Studio categories preview">
+        <article class="card" id="photography"><h2>Photography</h2><p>Frames, street tones, and cinematic still moments.</p></article>
+        <article class="card" id="blender"><h2>Blender Animation</h2><p>3D experiments, procedural textures, and stylized motion.</p></article>
+        <article class="card" id="projects"><h2>Projects</h2><p>Ideas built from sketch to prototype with careful detail.</p></article>
+        <article class="card" id="coreldraw"><h2>CorelDRAW Designs</h2><p>Classic vector layouts, emblem work, and print-ready graphics.</p></article>
+        <article class="card" id="electronics"><h2>Electronics</h2><p>Circuits, bench tests, and practical hardware explorations.</p></article>
+        <article class="card" id="youtube"><h2>YouTube</h2><p>Visual storytelling, process videos, and experimental cuts.</p></article>
+        <article class="card" id="instagram"><h2>Instagram</h2><p>Daily snapshots and creative highlights from ongoing work.</p></article>
+        <article class="card" id="about"><h2>About Me</h2><p>A personal studio space for craft, technology, and expression.</p></article>
       </section>
     </main>
   </body>
