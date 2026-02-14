@@ -1,55 +1,198 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background: url('bg.png') no-repeat center center fixed;
-  background-size: cover;
-  color: white;
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.5rem;
+        
+        /* Warm, earthy creative studio palette */
+        --background: 0.98 0.005 60;
+        --foreground: 0.20 0.015 40;
+        
+        --card: 0.96 0.008 55;
+        --card-foreground: 0.20 0.015 40;
+        
+        --popover: 0.98 0.005 60;
+        --popover-foreground: 0.20 0.015 40;
+        
+        /* Warm terracotta primary */
+        --primary: 0.55 0.18 35;
+        --primary-foreground: 0.98 0.005 60;
+        
+        /* Soft sand secondary */
+        --secondary: 0.88 0.025 70;
+        --secondary-foreground: 0.25 0.015 40;
+        
+        --muted: 0.92 0.012 65;
+        --muted-foreground: 0.50 0.015 45;
+        
+        /* Warm amber accent */
+        --accent: 0.75 0.15 55;
+        --accent-foreground: 0.20 0.015 40;
+        
+        --destructive: 0.577 0.245 27.325;
+        --destructive-foreground: 0.985 0 0;
+        
+        --border: 0.85 0.015 50;
+        --input: 0.88 0.015 55;
+        --ring: 0.55 0.18 35;
+        
+        --chart-1: 0.646 0.222 41.116;
+        --chart-2: 0.6 0.118 184.704;
+        --chart-3: 0.398 0.07 227.392;
+        --chart-4: 0.828 0.189 84.429;
+        --chart-5: 0.769 0.188 70.08;
+    }
+
+    .dark {
+        /* Dark mode with warm undertones */
+        --background: 0.15 0.015 40;
+        --foreground: 0.95 0.008 60;
+        
+        --card: 0.20 0.018 38;
+        --card-foreground: 0.95 0.008 60;
+        
+        --popover: 0.18 0.016 39;
+        --popover-foreground: 0.95 0.008 60;
+        
+        /* Bright terracotta for dark mode */
+        --primary: 0.65 0.20 35;
+        --primary-foreground: 0.15 0.015 40;
+        
+        --secondary: 0.25 0.020 42;
+        --secondary-foreground: 0.95 0.008 60;
+        
+        --muted: 0.28 0.018 41;
+        --muted-foreground: 0.65 0.012 55;
+        
+        --accent: 0.70 0.16 50;
+        --accent-foreground: 0.15 0.015 40;
+        
+        --destructive: 0.704 0.191 22.216;
+        --destructive-foreground: 0.95 0.008 60;
+        
+        --border: 0.30 0.020 40;
+        --input: 0.28 0.018 41;
+        --ring: 0.65 0.20 35;
+        
+        --chart-1: 0.488 0.243 264.376;
+        --chart-2: 0.696 0.17 162.48;
+        --chart-3: 0.769 0.188 70.08;
+        --chart-4: 0.627 0.265 303.9;
+        --chart-5: 0.645 0.246 16.439;
+    }
+
+    * {
+        @apply border-border;
+    }
+    
+    body {
+        @apply bg-background text-foreground;
+        font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        font-feature-settings: 'kern' 1, 'liga' 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
 }
 
-.container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 100vh;
-  padding: 60px;
-  backdrop-filter: blur(2px);
+@layer components {
+    /* Glass morphism panel */
+    .glass-panel {
+        @apply rounded-2xl bg-card p-8 shadow-2xl backdrop-blur-md;
+        @apply transition-all duration-300 hover:shadow-3xl;
+        border: 1px solid oklch(var(--border) / 0.5);
+        background-color: oklch(var(--card) / 0.6);
+    }
+    
+    .glass-panel:hover {
+        background-color: oklch(var(--card) / 0.7);
+    }
+
+    /* Main heading */
+    .heading-main {
+        @apply text-5xl font-bold tracking-tight text-foreground sm:text-6xl md:text-7xl lg:text-8xl;
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+    }
+
+    /* Tagline */
+    .tagline {
+        @apply text-2xl font-medium tracking-wide text-muted-foreground sm:text-3xl md:text-4xl;
+        font-family: 'JetBrains Mono', monospace;
+        font-weight: 400;
+        letter-spacing: 0.05em;
+    }
+
+    /* Navigation items */
+    .nav-item {
+        @apply relative overflow-hidden bg-secondary text-base font-medium;
+        @apply transition-all duration-300 ease-out;
+        @apply focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2;
+        @apply active:scale-[0.98];
+        border: 1px solid oklch(var(--border) / 0.7);
+        background-color: oklch(var(--secondary) / 0.4);
+    }
+    
+    .nav-item:hover {
+        border-color: oklch(var(--primary) / 0.5);
+        background-color: oklch(var(--primary) / 0.1);
+        color: oklch(var(--primary));
+        box-shadow: 0 10px 15px -3px oklch(0.2 0.015 40 / 0.1);
+    }
+
+    /* Vinyl container */
+    .vinyl-container {
+        @apply relative h-80 w-80 xl:h-96 xl:w-96;
+        filter: drop-shadow(0 20px 40px oklch(0.2 0.015 40 / 0.3));
+    }
+
+    /* Vinyl spin animation */
+    .vinyl-spin {
+        animation: spin-slow 12s linear infinite;
+        will-change: transform;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .vinyl-spin {
+            animation: spin-slow 20s linear infinite;
+        }
+    }
 }
 
-.text-block h1 {
-  font-size: 60px;
-  margin-bottom: 10px;
+@layer utilities {
+    /* Smooth transitions for all interactive elements */
+    * {
+        @apply transition-colors duration-200;
+    }
+
+    /* Custom shadow utilities */
+    .shadow-3xl {
+        box-shadow: 0 25px 50px -12px oklch(0.2 0.015 40 / 0.25);
+    }
 }
 
-.tagline {
-  font-size: 24px;
-  opacity: 0.8;
-  margin-bottom: 30px;
+/* Keyframe animations */
+@keyframes spin-slow {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
-.menu {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  font-size: 20px;
-  line-height: 36px;
+/* Ensure smooth scrolling */
+html {
+    scroll-behavior: smooth;
 }
 
-.menu li {
-  transition: opacity 0.3s ease;
-  cursor: default;
-}
-
-.menu li:hover {
-  opacity: 0.6;
-}
-
-.vinyl {
-  width: 260px;
-  animation: spin 10s linear infinite;
-}
-
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+/* Focus visible styles for accessibility */
+:focus-visible {
+    outline: 2px solid oklch(var(--primary));
+    outline-offset: 2px;
 }
