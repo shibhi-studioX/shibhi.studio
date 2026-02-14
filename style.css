@@ -1,0 +1,144 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BASE */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #000;
+  color: #fff;
+  line-height: 1.6;
+  overflow-x: hidden;
+  animation: drift 30s infinite alternate ease-in-out;
+  position: relative;
+}
+
+/* VINYL GRAIN OVERLAY */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: url('https://i.ibb.co/7WmJczt/vinyl-grain.png') repeat;
+  opacity: 0.05;
+  animation: grain 0.2s steps(2) infinite;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.nav {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+}
+
+.nav a {
+  color: #aaa;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+.nav a:hover {
+  color: #fff;
+}
+
+.hero-text h1 {
+  font-size: 64px;
+  letter-spacing: 2px;
+  animation: fadeUp 1.2s ease forwards;
+  opacity: 0;
+}
+
+.hero-text p {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #aaa;
+  animation: fadeUp 1.5s ease forwards;
+  opacity: 0;
+}
+
+/* SECTIONS */
+.section {
+  padding: 120px 10%;
+}
+
+.section h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.section p {
+  max-width: 600px;
+  color: #ccc;
+}
+
+/* PROJECTS */
+.projects {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.project {
+  padding: 20px;
+  border: 1px solid #222;
+  color: #aaa;
+  transition: color 0.3s, border-color 0.3s;
+}
+
+.project:hover {
+  color: #fff;
+  border-color: #555;
+}
+
+/* CONTACT */
+.contact {
+  text-align: center;
+  color: #aaa;
+}
+
+/* FOOTER */
+footer {
+  padding: 40px;
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+}
+
+/* ANIMATIONS */
+
+/* Fade up hero text */
+@keyframes fadeUp {
+  0% { transform: translateY(30px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Subtle body drift (camera feel) */
+@keyframes drift {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(5px, -5px) rotate(0.2deg); }
+  100% { transform: translate(-5px, 5px) rotate(-0.2deg); }
+}
+
+/* Vinyl grain flicker */
+@keyframes grain {
+  0%, 100% { opacity: 0.05; }
+  50% { opacity: 0.1; }
+}
