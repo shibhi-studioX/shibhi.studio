@@ -1,145 +1,309 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Great+Vibes&family=Inter:wght@300;400;500;700&display=swap');
+<style>
+        /* Custom CSS overrides and animations */
+        :root {
+            --vinyl-speed: 5s;
+        }
 
-:root {
-  color-scheme: dark;
-  --text-main: #f8f8f6;
-  --text-muted: #d4d4d0;
-  --panel: rgba(7, 7, 8, 0.58);
-  --border: rgba(255, 255, 255, 0.2);
-}
+        body {
+            background-color: #050505;
+            color: #e5e5e5;
+            overflow-x: hidden;
+            font-family: 'Montserrat', sans-serif;
+        }
 
-* {
-  box-sizing: border-box;
-}
+        /* Dynamic Background Handling */
+        .bg-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: url('bg.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            /* The exposure effect */
+            animation: exposure-breathe 10s ease-in-out infinite alternate;
+        }
 
-html,
-body {
-  margin: 0;
-  min-height: 100%;
-}
+        /* Dark overlay to ensure text readability */
+        .bg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6); /* Darkens the bg image */
+            z-index: -1;
+            pointer-events: none;
+        }
 
-body {
-  font-family: 'Inter', system-ui, sans-serif;
-  color: var(--text-main);
-  background: linear-gradient(120deg, rgba(0, 0, 0, 0.6), rgba(8, 8, 8, 0.45)),
-    url('bg.png') center / cover no-repeat fixed;
-  line-height: 1.5;
-}
+        @keyframes exposure-breathe {
+            0% { filter: brightness(0.6) contrast(1.1); }
+            50% { filter: brightness(0.9) contrast(1.0); }
+            100% { filter: brightness(0.6) contrast(1.1); }
+        }
 
-.site-shell {
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
-  padding: clamp(1rem, 2vw, 2rem);
-}
+        /* Typography */
+        .brand-heading {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 0.1em;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.8);
+        }
 
-.hero {
-  width: min(1120px, 100%);
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  align-items: center;
-  gap: clamp(1rem, 3vw, 3rem);
-  padding: clamp(1.2rem, 3vw, 2.8rem);
-  border-radius: 28px;
-  background: var(--panel);
-  border: 1px solid var(--border);
-  backdrop-filter: blur(6px);
-  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.35);
-}
+        .tagline-main {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: #aaa;
+        }
 
-h1 {
-  margin: 0;
-  font-family: 'Cinzel', serif;
-  font-size: clamp(2rem, 4.7vw, 4.5rem);
-  letter-spacing: 0.04em;
-  text-transform: lowercase;
-}
+        .tagline-script {
+            font-family: 'Great Vibes', cursive; /* Calligraphic */
+            font-size: 2rem;
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+            margin-top: 1rem;
+            line-height: 1.2;
+        }
 
-.tagline {
-  margin: 0.45rem 0 0;
-  font-family: 'Cinzel', serif;
-  font-size: clamp(1rem, 1.8vw, 1.4rem);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-}
+        /* Navigation Links */
+        .nav-item {
+            position: relative;
+            padding-left: 0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-family: 'Cinzel', serif;
+            opacity: 0.8;
+        }
 
-.quote {
-  margin: 1.1rem 0 1.8rem;
-  max-width: 42ch;
-  font-family: 'Great Vibes', cursive;
-  font-style: italic;
-  font-size: clamp(1.45rem, 2.7vw, 2.1rem);
-  color: #f7efe2;
-}
+        .nav-item:hover {
+            padding-left: 15px;
+            opacity: 1;
+            color: #fff;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+        }
 
-.categories {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.65rem;
-}
+        .nav-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 0;
+            height: 1px;
+            background: #fff;
+            transition: width 0.3s ease;
+        }
 
-.categories a {
-  display: inline-block;
-  text-decoration: none;
-  color: #fff;
-  font-size: 0.95rem;
-  letter-spacing: 0.03em;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  border-radius: 999px;
-  padding: 0.45rem 0.95rem;
-  background: rgba(255, 255, 255, 0.06);
-  transition: transform 220ms ease, background-color 220ms ease, border-color 220ms ease;
-}
+        .nav-item:hover::before {
+            width: 10px;
+        }
 
-.categories a:hover,
-.categories a:focus-visible {
-  transform: translateY(-2px);
-  background: rgba(255, 255, 255, 0.16);
-  border-color: rgba(255, 255, 255, 0.7);
-}
+        /* Vinyl Styling */
+        .vinyl-wrapper {
+            position: relative;
+            width: 350px;
+            height: 350px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-.hero-art {
-  display: grid;
-  place-items: center;
-}
+        .vinyl-disc {
+            width: 100%;
+            height: 100%;
+            background-image: url('vinyl.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            border-radius: 50%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+            /* Animation Setup */
+            animation: spin var(--vinyl-speed) linear infinite;
+        }
 
-.vinyl {
-  width: min(360px, 78vw);
-  aspect-ratio: 1;
-  object-fit: contain;
-  animation: spin 20s linear infinite;
-  filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.6));
-}
+        /* Pause class controlled by JS */
+        .vinyl-disc.paused {
+            animation-play-state: paused;
+        }
 
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
 
-@media (max-width: 860px) {
-  .hero {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
+        /* Center Control Button */
+        .center-knob {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, #333 0%, #000 100%);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            cursor: pointer;
+            border: 2px solid #555;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.2s ease, border-color 0.3s ease;
+        }
 
-  .hero-copy {
-    display: grid;
-    justify-items: center;
-  }
+        .center-knob:hover {
+            transform: translate(-50%, -50%) scale(1.05);
+            border-color: #fff;
+        }
 
-  .categories {
-    justify-content: center;
-  }
+        .play-icon {
+            width: 0; 
+            height: 0; 
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-left: 18px solid #fff;
+            margin-left: 4px; /* Optical centering */
+            transition: all 0.2s ease;
+        }
 
-  .vinyl {
-    width: min(320px, 72vw);
-  }
-}
+        .pause-icon {
+            width: 14px;
+            height: 18px;
+            border-left: 5px solid #fff;
+            border-right: 5px solid #fff;
+            box-sizing: content-box;
+            transition: all 0.2s ease;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .vinyl-wrapper {
+                width: 250px;
+                height: 250px;
+                margin-bottom: 2rem;
+            }
+            .tagline-script {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-6 md:p-12 relative">
+
+    <!-- Background Images -->
+    <div class="bg-container"></div>
+    <div class="bg-overlay"></div>
+
+    <!-- Audio Element (Hidden) -->
+    <!-- Replace 'music.mp3' with your actual file path or URL -->
+    <audio id="audioPlayer" loop>
+        <source src="music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <main class="w-full max-w-7xl flex flex-col md:flex-row items-center justify-between z-10 gap-12">
+        
+        <!-- Left Section: Text Content -->
+        <div class="text-left flex-1 space-y-8 animate-fade-in-up">
+            <header>
+                <h1 class="brand-heading text-5xl md:text-7xl font-bold text-white mb-2">
+                    shibhi.studio
+                </h1>
+                <h2 class="tagline-main text-lg md:text-xl font-light text-gray-400">
+                    Experimental.
+                </h2>
+                <p class="tagline-script mt-4 max-w-lg">
+                    "Not just for a television, Teleport to where it's written."
+                </p>
+            </header>
+
+            <nav class="mt-12">
+                <ul class="space-y-4 text-xl md:text-2xl text-gray-300">
+                    <li class="nav-item"><a href="#photography">Photography</a></li>
+                    <li class="nav-item"><a href="#blender">Blender Animation</a></li>
+                    <li class="nav-item"><a href="#projects">Projects</a></li>
+                    <li class="nav-item"><a href="#corel">CorelDRAW Designs</a></li>
+                    <li class="nav-item"><a href="#electronics">Electronics</a></li>
+                    <li class="nav-item"><a href="#youtube">YouTube</a></li>
+                    <li class="nav-item"><a href="#instagram">Instagram</a></li>
+                    <li class="nav-item"><a href="#about">About Me</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Right Section: Vinyl Player -->
+        <div class="flex-1 flex justify-center md:justify-end w-full">
+            <div class="vinyl-wrapper">
+                <!-- The Spinning Vinyl Image -->
+                <div id="vinyl" class="vinyl-disc"></div>
+                
+                <!-- The Center Toggle Button -->
+                <div id="toggleBtn" class="center-knob" title="Play/Pause Music">
+                    <!-- Icon will be injected by JS -->
+                    <div id="icon" class="play-icon"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer / Decorative -->
+    <footer class="absolute bottom-4 text-xs text-gray-600 font-mono">
+        &copy; SHIBHI.STUDIO // EST. 2024
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const vinyl = document.getElementById('vinyl');
+            const toggleBtn = document.getElementById('toggleBtn');
+            const icon = document.getElementById('icon');
+            const audio = document.getElementById('audioPlayer');
+
+            // Initial State: Paused
+            let isPlaying = false;
+            vinyl.classList.add('paused'); 
+
+            // Function to toggle play/pause
+            function togglePlay() {
+                if (isPlaying) {
+                    // Pause Logic
+                    audio.pause();
+                    vinyl.classList.add('paused');
+                    icon.className = 'play-icon';
+                    isPlaying = false;
+                } else {
+                    // Play Logic
+                    // We wrap play in a promise to handle browser autoplay policies
+                    const playPromise = audio.play();
+
+                    if (playPromise !== undefined) {
+                        playPromise.then(_ => {
+                            // Play started successfully
+                            vinyl.classList.remove('paused');
+                            icon.className = 'pause-icon';
+                            isPlaying = true;
+                        })
+                        .catch(error => {
+                            console.log("Playback prevented. User interaction required.");
+                            // If it fails (e.g. file missing), we still animate visually for effect
+                            vinyl.classList.remove('paused');
+                            icon.className = 'pause-icon';
+                            isPlaying = true;
+                        });
+                    }
+                }
+            }
+
+            // Click listener
+            toggleBtn.addEventListener('click', togglePlay);
+
+            // Optional: Pause animation if music ends
+            audio.addEventListener('ended', () => {
+                vinyl.classList.add('paused');
+                icon.className = 'play-icon';
+                isPlaying = false;
+            });
+        });
+    </script>
+</body>
+</html>
