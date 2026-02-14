@@ -1,64 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>shibhi.studio — Experimental.</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shìbhì Studio</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Vinyl background container -->
+  <div class="vinyl-container">
+    <img src="vinyl.png" alt="Spinning Vinyl" class="vinyl">
+    <button id="music-btn">▶️</button>
+    <audio id="bg-music" loop>
+      <source src="music.mp3" type="audio/mpeg">
+    </audio>
+  </div>
 
-  <!-- HERO -->
-  <section class="hero">
-    <nav class="nav">
-      <a href="#projects">Projects</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
+  <!-- Overlay gradient / exposure effect -->
+  <div class="overlay"></div>
 
-    <div class="hero-text">
-      <h1>shibhi.studio</h1>
-      <p>Experimental.</p>
-    </div>
-  </section>
+  <!-- Navigation Categories -->
+  <nav class="categories">
+    <ul>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#photography">Photography</a></li>
+      <li><a href="#tech">Computer & Tech</a></li>
+      <li><a href="#about">About Lab</a></li>
+      <li><a href="#youtube">YouTube</a></li>
+      <li><a href="#instagram">Instagram</a></li>
+      <li><a href="#blender">Blender & Animations</a></li>
+      <li><a href="#inventions">Inventions</a></li>
+      <li><a href="#electronics">Electronics</a></li>
+    </ul>
+  </nav>
 
-  <!-- ABOUT -->
-  <section id="about" class="section">
-    <h2>About</h2>
-    <p>
-      A creative studio built on experimentation, visuals, and ideas.<br>
-      Less noise. More intent. Always evolving.
-    </p>
-  </section>
+  <!-- Extra creative particles -->
+  <div class="particles">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
 
-  <!-- PROJECTS -->
-  <section id="projects" class="section">
-    <h2>Projects</h2>
-    <div class="projects">
-      <div class="project">GNX — Visual Study</div>
-      <div class="project">Experimental 3D</div>
-      <div class="project">Tech & Design</div>
-    </div>
-  </section>
+  <!-- Content Sections -->
+  <section id="projects"><h1>Projects</h1></section>
+  <section id="photography"><h1>Photography</h1></section>
+  <section id="tech"><h1>Computer & Tech</h1></section>
+  <section id="about"><h1>About Lab</h1></section>
+  <section id="youtube"><h1>YouTube</h1></section>
+  <section id="instagram"><h1>Instagram</h1></section>
+  <section id="blender"><h1>Blender & Animations</h1></section>
+  <section id="inventions"><h1>Inventions</h1></section>
+  <section id="electronics"><h1>Electronics</h1></section>
 
-  <!-- JOURNEY -->
-  <section class="section">
-    <h2>Journey</h2>
-    <p>
-      Built from curiosity. Refined through repetition.<br>
-      Experiment first. Polish later.
-    </p>
-  </section>
+  <script>
+    const musicBtn = document.getElementById('music-btn');
+    const bgMusic = document.getElementById('bg-music');
+    let playing = false;
 
-  <!-- CONTACT -->
-  <section id="contact" class="section contact">
-    <p>Instagram · YouTube</p>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    shibhi.studio — Experimental.
-  </footer>
-
+    musicBtn.addEventListener('click', () => {
+      if (!playing) {
+        bgMusic.play();
+        musicBtn.textContent = '⏸️';
+      } else {
+        bgMusic.pause();
+        musicBtn.textContent = '▶️';
+      }
+      playing = !playing;
+    });
+  </script>
 </body>
 </html>
