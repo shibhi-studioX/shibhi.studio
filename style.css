@@ -1,200 +1,83 @@
-/* Custom styles for shibhi.studio landing page elements */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* Featured Work Section */
-.featured-section {
-  max-width: 1200px;
-  margin: 0 auto;
-}
+@layer base {
+    :root {
+        --radius: 0.625rem;
+        --background: 1 0 0;
+        --foreground: 0.145 0 0;
+        --card: 1 0 0;
+        --card-foreground: 0.145 0 0;
+        --popover: 1 0 0;
+        --popover-foreground: 0.145 0 0;
+        --primary: 0.205 0 0;
+        --primary-foreground: 0.985 0 0;
+        --secondary: 0.97 0 0;
+        --secondary-foreground: 0.205 0 0;
+        --muted: 0.97 0 0;
+        --muted-foreground: 0.556 0 0;
+        --accent: 0.97 0 0;
+        --accent-foreground: 0.205 0 0;
+        --destructive: 0.577 0.245 27.325;
+        --destructive-foreground: 0.985 0 0;
+        --border: 0.922 0 0;
+        --input: 0.922 0 0;
+        --ring: 0.708 0 0;
+        --chart-1: 0.646 0.222 41.116;
+        --chart-2: 0.6 0.118 184.704;
+        --chart-3: 0.398 0.07 227.392;
+        --chart-4: 0.828 0.189 84.429;
+        --chart-5: 0.769 0.188 70.08;
+        --sidebar: 0.985 0 0;
+        --sidebar-foreground: 0.145 0 0;
+        --sidebar-primary: 0.205 0 0;
+        --sidebar-primary-foreground: 0.985 0 0;
+        --sidebar-accent: 0.97 0 0;
+        --sidebar-accent-foreground: 0.205 0 0;
+        --sidebar-border: 0.922 0 0;
+        --sidebar-ring: 0.708 0 0;
+    }
 
-.section-heading {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  margin-bottom: 2rem;
-  color: oklch(var(--foreground));
-}
+    .dark {
+        --background: 0.145 0 0;
+        --foreground: 0.985 0 0;
+        --card: 0.205 0 0;
+        --card-foreground: 0.985 0 0;
+        --popover: 0.269 0 0;
+        --popover-foreground: 0.985 0 0;
+        --primary: 0.922 0 0;
+        --primary-foreground: 0.205 0 0;
+        --secondary: 0.269 0 0;
+        --secondary-foreground: 0.985 0 0;
+        --muted: 0.269 0 0;
+        --muted-foreground: 0.708 0 0;
+        --accent: 0.371 0 0;
+        --accent-foreground: 0.985 0 0;
+        --destructive: 0.704 0.191 22.216;
+        --destructive-foreground: 0.205 0 0;
+        --border: 1 0 0 / 10%;
+        --input: 1 0 0 / 15%;
+        --ring: 0.556 0 0;
+        --chart-1: 0.488 0.243 264.376;
+        --chart-2: 0.696 0.17 162.48;
+        --chart-3: 0.769 0.188 70.08;
+        --chart-4: 0.627 0.265 303.9;
+        --chart-5: 0.645 0.246 16.439;
+        --sidebar: 0.205 0 0;
+        --sidebar-foreground: 0.985 0 0;
+        --sidebar-primary: 0.488 0.243 264.376;
+        --sidebar-primary-foreground: 0.985 0 0;
+        --sidebar-accent: 0.269 0 0;
+        --sidebar-accent-foreground: 0.985 0 0;
+        --sidebar-border: 1 0 0 / 10%;
+        --sidebar-ring: 0.439 0 0;
+    }
 
-.featured-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-}
-
-.work-card {
-  background-color: oklch(var(--card) / 0.5);
-  border: 1px solid oklch(var(--border) / 0.5);
-  border-radius: 1rem;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.work-card:hover {
-  background-color: oklch(var(--card) / 0.7);
-  border-color: oklch(var(--primary) / 0.5);
-  box-shadow: 0 10px 30px -5px oklch(0.2 0.015 40 / 0.2);
-  transform: translateY(-4px);
-}
-
-.work-title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: oklch(var(--foreground));
-  transition: color 0.3s ease;
-}
-
-.work-card:hover .work-title {
-  color: oklch(var(--primary));
-}
-
-.work-category {
-  color: oklch(var(--muted-foreground));
-  font-size: 0.875rem;
-}
-
-.work-year {
-  color: oklch(var(--muted-foreground) / 0.7);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.875rem;
-}
-
-.work-icon {
-  color: oklch(var(--primary));
-}
-
-/* About Section */
-.about-section {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.about-content {
-  background-color: oklch(var(--card) / 0.4);
-  border: 1px solid oklch(var(--border) / 0.4);
-  border-radius: 1rem;
-  padding: 2rem;
-  backdrop-filter: blur(8px);
-}
-
-.about-text {
-  font-size: 1.125rem;
-  line-height: 1.8;
-  color: oklch(var(--foreground) / 0.9);
-}
-
-/* Currently Exploring Section */
-.exploring-section {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.tags-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  justify-content: center;
-}
-
-.tag-badge {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.875rem;
-  padding: 0.5rem 1rem;
-  background-color: oklch(var(--secondary) / 0.5);
-  border: 1px solid oklch(var(--border) / 0.5);
-  transition: all 0.3s ease;
-  cursor: default;
-}
-
-.tag-badge:hover {
-  background-color: oklch(var(--primary) / 0.15);
-  border-color: oklch(var(--primary) / 0.5);
-  color: oklch(var(--primary));
-  transform: translateY(-2px);
-}
-
-/* Contact Section */
-.contact-section {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.contact-content {
-  background-color: oklch(var(--card) / 0.4);
-  border: 1px solid oklch(var(--border) / 0.4);
-  border-radius: 1rem;
-  padding: 2.5rem;
-  backdrop-filter: blur(8px);
-}
-
-.contact-text {
-  font-size: 1.125rem;
-  color: oklch(var(--foreground) / 0.9);
-  margin-bottom: 2rem;
-}
-
-.social-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-}
-
-.social-button {
-  background-color: oklch(var(--secondary) / 0.4);
-  border: 1px solid oklch(var(--border) / 0.6);
-  transition: all 0.3s ease;
-}
-
-.social-button:hover {
-  background-color: oklch(var(--primary) / 0.1);
-  border-color: oklch(var(--primary) / 0.5);
-  color: oklch(var(--primary));
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px -4px oklch(0.2 0.015 40 / 0.15);
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .section-heading {
-    font-size: 1.75rem;
-  }
-
-  .featured-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .about-content,
-  .contact-content {
-    padding: 1.5rem;
-  }
-
-  .about-text,
-  .contact-text {
-    font-size: 1rem;
-  }
-
-  .social-links {
-    flex-direction: column;
-  }
-
-  .social-button {
-    width: 100%;
-  }
-}
-
-/* Accessibility: Respect reduced motion preference */
-@media (prefers-reduced-motion: reduce) {
-  .work-card,
-  .tag-badge,
-  .social-button {
-    transition: none;
-  }
-
-  .work-card:hover,
-  .tag-badge:hover,
-  .social-button:hover {
-    transform: none;
-  }
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+    }
 }
