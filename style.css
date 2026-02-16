@@ -8,39 +8,42 @@
 /* BODY */
 body {
   height: 100vh;
-  font-family: Arial, Helvetica, sans-serif;
   background: url("bg.png") center / cover no-repeat fixed;
   color: #fff;
+  font-family: 'Inter', sans-serif;
   overflow: hidden;
 }
 
-/* MAIN LAYOUT */
+/* MAIN CONTAINER */
 .container {
   height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 80px;
+  padding: 0 100px;
 }
 
-/* LEFT SIDE */
+/* LEFT COLUMN */
 .left {
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  justify-content: center;
+  gap: 60px;
+  max-width: 520px;
 }
 
-/* NAV */
+/* NAV — CLASSIC */
 .nav {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 18px;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 1px;
 }
 
 .nav a {
-  color: #fff;
   text-decoration: none;
-  font-size: 16px;
+  color: #fff;
   opacity: 0.75;
   transition: opacity 0.3s;
 }
@@ -55,33 +58,43 @@ body {
   letter-spacing: 2px;
 }
 
-.hero p {
-  font-size: 20px;
-  color: #ccc;
+.tagline {
+  font-size: 22px;
   margin-top: 6px;
+  opacity: 0.8;
 }
 
-/* RIGHT SIDE */
+/* CALLIGRAPHIC QUOTE */
+.quote {
+  margin-top: 20px;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 22px;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+/* RIGHT COLUMN */
 .right {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* VINYL */
+/* BIG VINYL */
 .vinyl {
-  width: 320px;
-  height: 320px;
-  animation: spin 6s linear infinite;
+  width: 460px;
+  height: 460px;
+  animation: spin 8s linear infinite;
 }
 
-/* SPIN */
+/* VINYL SPIN */
 @keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
 
-/* GRAIN */
+/* GRAIN OVERLAY */
 body::after {
   content: "";
   position: fixed;
