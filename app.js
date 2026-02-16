@@ -1,28 +1,49 @@
-const audio = document.getElementById("audio");
-const playBtn = document.getElementById("playBtn");
-const vinyl = document.getElementById("vinyl");
-const panel = document.getElementById("panel");
 const nav = document.getElementById("nav");
+const panelRoot = document.getElementById("panelRoot");
+const audio = document.getElementById("audio");
+const vinyl = document.getElementById("vinyl");
+const control = document.getElementById("vinylControl");
 
 let playing = false;
+let activePanel = null;
 
-/* PLAY / PAUSE */
-playBtn.addEventListener("click", () => {
-  if (!playing) {
-    audio.play();
-    vinyl.style.animationPlayState = "running";
-    playBtn.textContent = "⏸";
-  } else {
-    audio.pause();
-    vinyl.style.animationPlayState = "paused";
-    playBtn.textContent = "▶";
-  }
+/* VINYL CONTROL */
+control.onclick = () => {
   playing = !playing;
-});
+  control.textContent = playing ? "⏸" : "▶";
+  vinyl.style.animationPlayState = playing ? "running" : "paused";
+  playing ? audio.play() : audio.pause();
+};
 
-/* LOAD CONTENT */
-fetch("content.json")
-  .then(res => res.json())
+/* PANEL SPAWNER */
+function spawnPanel(btn, item) {
+  killPanel();
+
+  const rect = btn.getBoundingClientRect();
+  const panel = document.createElement("div");
+  panel.className = "panel";
+
+  panel.style.left = rect.right + 20 + "px";
+  panel.style.top = rect.top + "px";
+
+  panel.innerHTML =
+    `<h4>${item.name}</h4>` +
+    item.sub.map(s => `<p>${s}</p>`).join("");
+
+  panelRoot.appendChild(panel);
+  activePanel = panel;
+}
+
+function killPanel() {
+  if (activePanel) {
+    activePanel.remove();
+    activePanel = null;
+  }
+}
+
+/* LOAD DATA */
+fetch("data/content.json")
+  .then(r => r.json())
   .then(data => {
 
     title.textContent = data.title;
@@ -30,24 +51,19 @@ fetch("content.json")
     quote.textContent = data.quote;
 
     data.nav.forEach(item => {
-      const a = document.createElement("a");
-      a.textContent = item.name;
-      a.href = "javascript:void(0)";
+      const btn = document.createElement("button");
+      btn.textContent = item.name;
 
-      a.addEventListener("click", () => {
-        panel.innerHTML =
-          `<h3>${item.name}</h3>` +
-          item.sub.map(s => `<p>${s}</p>`).join("");
-        panel.classList.remove("hidden");
-      });
+      btn.onmouseenter = () => spawnPanel(btn, item);
+      btn.onclick = () => spawnPanel(btn, item);
 
-      nav.appendChild(a);
+      nav.appendChild(btn);
     });
   });
 
-/* CLOSE PANEL ON OUTSIDE CLICK */
-document.addEventListener("click", (e) => {
-  if (!e.target.closest(".nav a") && !e.target.closest(".panel")) {
-    panel.classList.add("hidden");
+/* CLICK AWAY */
+document.addEventListener("click", e => {
+  if (!e.target.closest(".panel") && !e.target.closest(".nav")) {
+    killPanel();
   }
 });
