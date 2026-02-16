@@ -1,0 +1,35 @@
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* BLUR PANEL */
+.panel {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 440px;
+  padding: 32px;
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,0.15);
+  transform: translate(-50%, -50%) scale(0.9);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease;
+}
+
+.panel.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  pointer-events: auto;
+}
+
+.panel h2 {
+  margin-bottom: 12px;
+}
+
+.panel p {
+  color: #ccc;
+  line-height: 1.5;
+}
