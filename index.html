@@ -1,47 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>shibhi.studio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&family=Cinzel&family=Inter:wght@300;400&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/vinyl.css">
+  <link rel="stylesheet" href="styles/panels.css">
 </head>
 
 <body>
 
-  <div class="container">
+  <main id="app">
 
-    <!-- LEFT -->
-    <div class="left">
+    <section class="left">
       <nav id="nav" class="nav"></nav>
 
       <div class="hero">
         <h1 id="title"></h1>
-        <p class="tagline" id="tagline"></p>
-        <p class="quote" id="quote"></p>
+        <p id="tagline" class="tagline"></p>
+        <p id="quote" class="quote"></p>
       </div>
-    </div>
+    </section>
 
-    <!-- RIGHT -->
-    <div class="right">
-      <div class="vinyl-wrap">
-        <img src="vinyl.png" class="vinyl" id="vinyl" alt="vinyl">
-        <button id="playBtn" class="play-btn">▶</button>
+    <section class="right">
+      <div class="vinyl-shell">
+        <img id="vinyl" src="assets/vinyl.png" alt="vinyl">
+        <button id="vinylControl" aria-label="Play Pause">▶</button>
       </div>
-    </div>
+    </section>
 
-  </div>
+  </main>
 
-  <!-- GLASS PANEL -->
-  <div id="panel" class="panel hidden"></div>
+  <!-- floating panel root -->
+  <div id="panelRoot"></div>
 
-  <!-- AUDIO -->
-  <audio id="audio" src="track.mp3"></audio>
+  <audio id="audio" src="assets/track.mp3"></audio>
 
-  <script src="app.js"></script>
+  <script src="scripts/app.js"></script>
 </body>
 </html>
