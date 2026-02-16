@@ -1,101 +1,150 @@
-* { margin:0; padding:0; box-sizing:border-box; }
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+/* BODY */
 body {
-  height:100vh;
-  background:url("bg.png") center/cover no-repeat fixed;
-  font-family:'Inter',sans-serif;
-  color:#fff;
-  overflow:hidden;
+  height: 100vh;
+  background: url("bg.png") center / cover no-repeat fixed;
+  font-family: 'Inter', sans-serif;
+  color: #fff;
+  overflow: hidden;
 }
 
-/* LAYOUT */
+/* GRAIN OVERLAY (DOES NOT BLOCK CLICKS) */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: url("https://i.ibb.co/7WmJczt/vinyl-grain.png") repeat;
+  opacity: 0.05;
+  z-index: 1;
+}
+
+/* MAIN LAYOUT */
 .container {
-  height:100%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:0 100px;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 100px;
+  position: relative;
+  z-index: 2;
 }
 
-.left { max-width:520px; display:flex; flex-direction:column; gap:60px; }
+/* LEFT */
+.left {
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
 
+/* NAV */
 .nav {
-  font-family:'Cinzel',serif;
-  display:flex;
-  flex-direction:column;
-  gap:18px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  font-family: 'Cinzel', serif;
 }
 
 .nav a {
-  color:#fff;
-  text-decoration:none;
-  opacity:.75;
-  cursor:pointer;
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.75;
+  cursor: pointer;
+  user-select: none;
+  z-index: 5;
 }
 
-.hero h1 { font-size:64px; }
-.tagline { opacity:.8; }
+.nav a:hover {
+  opacity: 1;
+}
+
+/* HERO */
+.hero h1 {
+  font-size: 64px;
+  letter-spacing: 2px;
+}
+
+.tagline {
+  font-size: 22px;
+  opacity: 0.8;
+}
+
 .quote {
-  margin-top:20px;
-  font-family:'Playfair Display',serif;
-  font-style:italic;
-  font-size:22px;
+  margin-top: 20px;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 22px;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+/* RIGHT */
+.right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* VINYL */
 .vinyl-wrap {
-  position:relative;
+  position: relative;
 }
 
 .vinyl {
-  width:460px;
-  animation:spin 8s linear infinite;
+  width: 460px;
+  height: 460px;
+  animation: spin 8s linear infinite;
+  animation-play-state: paused; /* starts paused */
 }
 
+/* PLAY / PAUSE BUTTON — BOTTOM RIGHT */
 .play-btn {
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  width:70px;
-  height:70px;
-  border-radius:50%;
-  border:none;
-  background:rgba(0,0,0,.6);
-  color:#fff;
-  font-size:24px;
-  cursor:pointer;
+  position: absolute;
+  bottom: 22px;
+  right: 22px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
 }
 
+/* SPIN */
 @keyframes spin {
-  from { transform:rotate(0deg); }
-  to { transform:rotate(360deg); }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 /* GLASS PANEL */
 .panel {
-  position:fixed;
-  left:80px;
-  top:50%;
-  transform:translateY(-50%);
-  width:300px;
-  padding:20px;
-  background:rgba(255,255,255,0.08);
-  backdrop-filter:blur(15px);
-  border-radius:12px;
-  transition:opacity .3s;
+  position: fixed;
+  left: 100px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 320px;
+  padding: 22px;
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  border-radius: 14px;
+  z-index: 10;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.panel.hidden { opacity:0; pointer-events:none; }
-.panel h3 { margin-bottom:10px; }
-.panel p { opacity:.8; }
-
-/* GRAIN */
-body::after {
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  background:url("https://i.ibb.co/7WmJczt/vinyl-grain.png") repeat;
-  opacity:.05;
+.panel.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-50%) scale(0.97);
 }
