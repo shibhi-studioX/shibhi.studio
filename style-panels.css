@@ -1,0 +1,22 @@
+.panel {
+  position: absolute;
+  min-width: 260px;
+  padding: 18px;
+
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border-radius: 14px;
+  pointer-events: auto;
+  z-index: 999;
+}
+
+.panel h4 {
+  margin: 0 0 10px;
+}
+
+.panel p {
+  margin: 6px 0;
+  opacity: 0.85;
+}
