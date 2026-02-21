@@ -3662,3 +3662,66 @@ a.\[a\&\]\:hover\:bg-secondary\/90:hover {
 a.\[a\&\]\:hover\:text-accent-foreground:hover {
   color: oklch(var(--accent-foreground));
 }
+
+/* Smooth scrolling for sub category boxes */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Sub category box scrolling - mobile and desktop */
+.overflow-y-auto,
+.overflow-x-auto,
+.overflow-auto {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Custom scrollbar styling for better UX */
+.overflow-y-auto::-webkit-scrollbar,
+.overflow-x-auto::-webkit-scrollbar,
+.overflow-auto::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-track,
+.overflow-x-auto::-webkit-scrollbar-track,
+.overflow-auto::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb,
+.overflow-x-auto::-webkit-scrollbar-thumb,
+.overflow-auto::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb:hover,
+.overflow-x-auto::-webkit-scrollbar-thumb:hover,
+.overflow-auto::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Dark mode scrollbar */
+.dark .overflow-y-auto::-webkit-scrollbar-thumb,
+.dark .overflow-x-auto::-webkit-scrollbar-thumb,
+.dark .overflow-auto::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.dark .overflow-y-auto::-webkit-scrollbar-thumb:hover,
+.dark .overflow-x-auto::-webkit-scrollbar-thumb:hover,
+.dark .overflow-auto::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+  .overflow-y-auto::-webkit-scrollbar,
+  .overflow-x-auto::-webkit-scrollbar,
+  .overflow-auto::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+}
