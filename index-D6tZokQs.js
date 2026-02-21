@@ -32932,7 +32932,7 @@ function CategoryOverlay({ category, onClose }) {
         children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
           "div",
           {
-            className: "glass-panel relative w-full max-w-6xl overflow-hidden rounded-2xl border border-white/20 shadow-2xl",
+            className: "glass-panel relative w-full max-w-6xl max-h-[90vh] overflow-hidden rounded-2xl border border-white/20 shadow-2xl flex flex-col",
             onClick: (e) => e.stopPropagation(),
             children: [
               /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between border-b border-white/20 p-6", children: [
@@ -32952,7 +32952,7 @@ function CategoryOverlay({ category, onClose }) {
                   }
                 )
               ] }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(ScrollArea, { className: "max-h-[calc(100vh-12rem)]", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "p-6", children: /* @__PURE__ */ jsxRuntimeExports.jsx(PhotoGalleryOverlayPanel, { category }) }) })
+              /* @__PURE__ */ jsxRuntimeExports.jsx(ScrollArea, { className: "flex-1 overflow-y-auto", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "p-6", children: /* @__PURE__ */ jsxRuntimeExports.jsx(PhotoGalleryOverlayPanel, { category }) }) })
             ]
           }
         )
@@ -32967,7 +32967,7 @@ function CategoryOverlay({ category, onClose }) {
       children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
         "div",
         {
-          className: "glass-panel relative w-full max-w-6xl overflow-hidden rounded-2xl border border-white/20 shadow-2xl",
+          className: "glass-panel relative w-full max-w-6xl max-h-[90vh] overflow-hidden rounded-2xl border border-white/20 shadow-2xl flex flex-col",
           onClick: (e) => e.stopPropagation(),
           children: [
             /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between border-b border-white/20 p-6", children: [
@@ -32987,7 +32987,7 @@ function CategoryOverlay({ category, onClose }) {
                 }
               )
             ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(ScrollArea, { className: "max-h-[calc(100vh-12rem)]", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-8 p-6", children: overlayContent ? overlayContent.sections.map((section, index2) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(ScrollArea, { className: "flex-1 overflow-y-auto", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-8 p-6", children: overlayContent ? overlayContent.sections.map((section, index2) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
               section.type === "text" && section.content && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-lg leading-relaxed text-white/80", children: section.content }),
               section.type === "photos" && section.photos && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
                 /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "mb-4 text-xl font-medium text-white", children: "Photo Gallery" }),
