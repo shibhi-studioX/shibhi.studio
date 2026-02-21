@@ -3767,3 +3767,16 @@ html {
   transition: all 0.3s ease;
 }
 
+
+/* Move vinyl player to the left near header */
+@media (min-width: 1024px) {
+  /* Vinyl player positioning - place it right after the header text */
+  .lg\:ml-8 {
+    margin-left: 2rem;
+  }
+  
+  /* Move HDD setup closer to categories */
+  .lg\:-ml-48 {
+    margin-left: -12rem !important;
+  }
+}
