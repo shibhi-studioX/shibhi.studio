@@ -33333,7 +33333,7 @@ function App() {
             /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-5xl font-light tracking-tight text-white lg:text-6xl", children: "shibhi.studio".trim() }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-base font-light text-white/40 lg:text-lg", children: "Experimental." })
           ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex justify-start lg:justify-end lg:flex-shrink-0 lg:-translate-x-[85%]", children: /* @__PURE__ */ jsxRuntimeExports.jsx(VinylPlayer, {}) })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex justify-start lg:justify-end lg:flex-shrink-0 lg:-translate-x-[100%]", children: /* @__PURE__ */ jsxRuntimeExports.jsx(VinylPlayer, {}) })
         ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-xl space-y-12", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-serif text-xl italic text-white/90 lg:text-2xl", children: "Not just for a television, Teleport to where it's written." }),
